@@ -1,0 +1,13 @@
+1. Change a user's password locally.
+
+# smbpasswd -a <username>
+
+2. Change a user's password on a remote host (via smbd).
+
+smbpasswd -r <hostname> -U <username>
+
+3. Initializing smbpasswd from /etc/passwd.
+
+cat /etc/passwd | mksmbpasswd.sh > /etc/samba/smbpasswd
+
+It will create Samba users with empty passwords.

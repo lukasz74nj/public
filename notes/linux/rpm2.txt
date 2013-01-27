@@ -1,0 +1,15 @@
+1. Rebuild from source.
+
+cd /usr/src/redhat/SPECS
+
+edit <package_name>.spec file
+
+rpm -ba --clean <spec_file>
+
+or
+
+rpmbuild -ba --clean <spec_file>
+
+(it will create the RPM under /usr/src/redhat/RPMS/i386)
+
+ 

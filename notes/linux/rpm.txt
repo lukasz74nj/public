@@ -1,0 +1,9 @@
+1. Extract all files from an RPM.
+
+rmp2cpio <archive.rpm> | cpio -id
+
+The "-d" flag will recreate all neccessary directories
+
+2. Search a filename within a list of RPM files.
+
+find . -name '*.rpm' | xargs rpm -qpd | grep '<filename>'

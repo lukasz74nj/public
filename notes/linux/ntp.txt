@@ -1,0 +1,18 @@
+1. Useful commands.
+
+# ntpq
+
+ntpq> peers
+ntpq> assoc
+ntpq> pstat <assocNo>
+
+# ntptrace
+
+2. Making an initial sync.
+
+ntpdate <ntp_host>    - making an initial sync
+ntpdate -d <ntp_host> - turn on debugging
+ntpq -p               - list connections
+
+
+

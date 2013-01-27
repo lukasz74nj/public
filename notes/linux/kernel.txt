@@ -1,0 +1,16 @@
+make mrproper 
+make xconfig 
+make dep 
+make clean 
+make bzImage 
+make modules  
+make modules_install
+mkinitrd -f --omit-scsi-modules /boot/initrd-<version>.img <version
+
+rm -f /boot/System.map
+rm -f /boot/vmlinuz
+
+cp arch/i386/boot/bzImage /boot/vmlinuz-<version>
+cp System.map /boot/System.map-<version>
+ln -s /boot/vmlinuz-<version> /boot/vmlinuz
+ln -s /boot/System.map-<version> /boot/System.map

@@ -1,0 +1,7 @@
+1. Configuration files.
+
+- /etc/auto.master
+
+2. List the active mount points.
+
+service autofs status.

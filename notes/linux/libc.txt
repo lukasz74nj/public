@@ -1,0 +1,7 @@
+1. Checking the version.
+
+Run /lib/libc*.so.
+
+v2.1.x -> libc 5
+v2.2.x -> libc 6
+

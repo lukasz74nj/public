@@ -1,0 +1,9 @@
+1. Dump network traffic on a given port.
+
+tcpdump port <port/service_name>
+
+2. Scan host's ports.
+
+nmap -sT -v - P0 <hostname/IP> - scans TCP ports
+
+

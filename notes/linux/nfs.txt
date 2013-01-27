@@ -1,0 +1,8 @@
+1. Useful commands.
+
+- nfsstat - shows NFS statistics
+- exportfs -v - shows the current export list
+
+2. Tips.
+
+- avoid having NFS mounts directly under the root

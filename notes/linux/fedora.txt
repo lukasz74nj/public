@@ -1,0 +1,7 @@
+- reconfigure SELinux to enable running Sun's Java
+
+# setsebool -P allow_execstack 1
+
+- determine graphics card version
+
+/sbin/lspci | grep VGA
