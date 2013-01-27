@@ -1,0 +1,4 @@
+- final fields of properly constructed objects can be safely accessed without
+additional synchronization (initialization safety guaranteed by the Java Memory
+Model)
+

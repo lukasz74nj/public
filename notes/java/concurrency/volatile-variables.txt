@@ -1,0 +1,24 @@
+- volatile variables are a weaker form of synchronization, they only guarantee
+visibility but not atomicity
+
+- operations on volatile variables are not reordered with other memory
+operations
+
+- volatile variables are not cached in registers or in caches where they are
+hidden from other processors, so a read of a volatile variable always returns
+the most recent write by any thread
+
+- fetch and store operations on 64-bit numeric variables (double and long) are
+atomic only if a variable is volatile
+
+- when a thread A writes to a volatile variable and subsequently thread B reads
+the same variable, the values of all variables that were visible to A prior to
+writing to the volatile variable become visible to thread B after reading the
+volatile variable; from a memory visibility perspective, writing to a volatile
+variable is like exiting a synchronized block and reading a volatile variable is
+like entering a synchronized block
+
+- volatile variables can be used to safely publish objects' references
+
+- the most common use for volatile variables is a completion, interruption, or
+status flag

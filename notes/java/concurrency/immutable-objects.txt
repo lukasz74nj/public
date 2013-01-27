@@ -1,0 +1,10 @@
+- an object is immutable if its state cannot be modified after construction, all
+fields are final and it is properly constructed (the "this" reference doesn't
+escape during construction)
+
+- immutable objects are always thread-safe and synchronization is not required
+to publish objects' references (initialization safety guaranteed by the Java
+Memory Model)
+
+
+

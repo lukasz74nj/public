@@ -1,0 +1,2 @@
+- atomic variables are useful for effecting atomic operations on a single
+variable (read-modify-write support)

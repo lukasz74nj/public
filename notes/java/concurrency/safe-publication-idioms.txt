@@ -1,0 +1,10 @@
+A properly constructed object can be safely published by:
+
+- initializing an object reference from a static initializer
+
+- storing a reference to it into a volatile field or AtomicReference
+
+- storing a reference to in into a final field of a properly constructed object
+
+- storing a reference to it into a field that is properly guarded by a lock
+
