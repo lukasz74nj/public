@@ -1,0 +1,28 @@
+1. Unregistering a VM and removing all files associated with it
+
+VBoxManage unregistervm <vm-name> --delete
+
+2. Setting up a Windows 7 VM
+
+- setup VM and install OS
+
+VBoxManage createvm --name 'Windows 7' --ostype Windows7_64 --register
+VBoxManage modifyvm 'Windows 7' --memory 4096 --vram 256 --acpi on --hwvirtex on --nestedpaging on --largepages on --vtxvpid on --accelerate3d off --boot1 dvd --nic1 bridged --bridgeadapter1 eth0
+VBoxManage createhd --filename ./VirtualBox\ VMs/Windows\ 7/hdd.vdi --size 30000
+VBoxManage storagectl 'Windows 7' --name 'IDE Controller' --add ide
+VBoxManage storageattach 'Windows 7' --storagectl 'IDE Controller' --port 0 --device 0 --type hdd --medium ./VirtualBox\ VMs/Windows\ 7/hdd.vdi
+VBoxManage storageattach 'Windows 7' --storagectl 'IDE Controller' --port 1 --device 0 --type dvddrive --medium /usr/local/install/windows/windows-7-ultimate.iso
+VBoxHeadless --startvm 'Windows 7'
+
+- shutdown VM
+
+- mount guest additions
+
+VBoxManage storageattach 'Windows 7' --storagectl 'IDE Controller' --port 0 --device 1 --type dvddrive --medium /usr/share/virtualbox/VBoxGuestAdditions.iso 
+
+- start VM
+- install guest additions
+
+3. Adding a shared folder
+
+VBoxManage sharedfolder add 'Windows 7' --name 'install' --hostpath /usr/local/install/ --readonly --automount

@@ -1,0 +1,11 @@
+1. Example of using context dependant selectors
+
+I B {
+	font-size:16px;
+}
+
+The above style defined for B will only apply if a B tag is nested inside an I
+tag, i.e:
+
+<I><B>Text</B></I>
+

@@ -1,0 +1,90 @@
+1. Setting up a new project:
+
+mvn archetype:create -DgroupId=<group ID> -DartifactId=<artifact ID>
+
+2. Common goals.
+
+- compile
+- package
+- install
+- clean
+
+3. Deploying 3rd party jars to remote repository
+
+Make sure the appropriate wagon provider and any neccessary dependencies are
+under $M2_HOME/lib, i.e. for the FTP mechanism the following files are needed:
+
+- wagon-ftp-<version>.jar
+- commons-net-<version>.jar
+- oro-<version>.jar
+
+Then invoke this command to deploy a file:
+
+mvn deploy:deploy-file
+	-DgroupId=<group ID>
+	-DartifactId=<artifact ID>
+	-Dversion=<version>
+	-Dfile=<path to a JAR file>
+	-DpomFile=<path to a POM file>
+	-Dpackaging=jar
+	-DrepositoryId=<repository ID>
+	-Durl=<URL to the repository>
+	
+The repository ID should be configured under ~/.m2/settings.xml.
+	
+4. Built-in properties
+
+${basedir}
+${project.artifactId}
+${project.version}
+${project.description}
+${project.build.directory} => target
+${project.build.outputDirectory} => target/classes
+${project.build.finalName} => ${project.artifactId}-${project.version}
+
+maven.dependency.classpath - (path ID to be used from Ant)
+maven.compile.classpath    - (path ID to be used from Ant)
+
+5. Releasing a project
+
+mvn release:prepare:
+
+- check that there's no uncommited changes in the sources and there's no
+SNAPSHOT dependencies
+
+- change version from x-SNAPSHOT in POM to released version, commit changes and
+tag SCM
+
+- change version to (x+1)-SNAPSHOT in POM and commit
+
+mvn release:perform:
+
+- checks out the tagged release from an SCM
+
+- executes predefined goals (by default deploy and site-deploy); a logic to
+update the build database can be put here
+
+6. Creating a plugin template
+
+mvn archetype:create
+	-DgroupId=com.accoona.maven.plugins
+	-DartifactId=maven-accoona-plugin
+	-DpackageName=com.accoona.maven.plugins
+	-DarchetypeArtifactId=maven-archetype-mojo
+
+7. Issues
+
+Per J2EE spec there should be only one version of a class in an application
+(i.e. the same class cannot exist both under EAR/ and EAR/WAR/WEB-INF/lib).
+
+All dependencies (including transitive) of a Web module are included under
+WEB-INF/lib. All dependencies (including transitive) of other modules (except
+Web) inside EAR (i.e. EJB) are included under EAR/. Problem: duplicate classes.
+Solution: exclude JARs from WEB-INF/lib and duplicate all dependencies from Web
+POM in EAR POM. Problem: why doesn't EAR plugin process these dependencies
+automatically, as it does for the EJB module?
+
+8. Misc
+
+mvn help:effective-pom      - shows the final result of the target POM
+mvn help:effective-settings - shows effective settings

@@ -1,0 +1,60 @@
+1. Selecting data and ordering results
+
+SELECT name, age, department_id
+FROM employee
+WHERE
+	(department_id = 1) OR (department_id = 3) OR (department_id IN (5, 6)) OR
+	(age BETWEEN 35 AND 50)
+ORDER BY age DESC
+
+2. Selecting data using nested queries
+
+SELECT name, age, department_id
+FROM employee
+WHERE department_id = (SELECT id FROM department WHERE name LIKE 'M%')
+ORDER BY age ASC
+
+3. Using GROUP BY and HAVING clauses
+
+SELECT department_id, max(age) 
+FROM employee
+GROUP BY department_id
+HAVING max(age) > 40
+
+4. INNER JOIN example
+
+SELECT d.name AS "Department Name", e.name AS "Employee Name"
+FROM department d INNER JOIN employee e
+ON d.id = e.department_id
+
+or
+
+SELECT e.name AS "Employee Name", d.name AS "Department Name"
+FROM employee e, department d
+WHERE e.department_id = d.id
+
+5. OUTER JOIN example
+
+SELECT d.name AS "Department Name", e.name AS "Employee Name"
+FROM department d OUTER JOIN employee e
+ON d.id = e.department_id
+
+OUTER JOIN returns all records from the table on the left plus matching
+records from the table on the right or NULL values if there is no match.
+
+6. Misc
+
+- creating indexes on each column of a table can improve the query performance
+as the query optimizer can choose from all the existing indexes to come up with
+an efficient execution plan, but it will cause data modification operations to
+become slow as every time data changes in the table, all the indexes need to be
+updated
+
+- triggers are special kind of stored procedures that get executed automatically
+when an INSERT, UPDATE or DELETE operation takes place on a table
+
+7. Searching date/time column for a specific date, regardless of time component
+
+For example, below clause will match '1974-05-16' date:
+
+WHERE col >= '1974-05-16' AND col < '1974-05-17'

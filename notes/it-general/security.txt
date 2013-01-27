@@ -1,0 +1,61 @@
+1. Enable network debugging for IBM JVMs
+
+javax.net.debug=true
+
+2. Default key/trust store password in WebSphere
+
+WebAS
+
+3. Empty passwords for keys in key databases
+
+ikeyman uses empty passwords for keys
+keytool requires key passwords to be at least 6 characters long
+
+4. Import a PKCS12 certificate using ikeyman
+
+Replace the following IBM SDK policy files with unrestricted ones (IBM's SDKs
+ship with strong but limited jurisdiction policy files):
+
+local_policy.jar
+US_export_policy.jar
+
+5. (WAS 6.1) If an SSL configuration specifies a client authentication alias,
+the corresponding certificate is being used regardless whether SSL client
+authentication is enabled or not (a bug?).
+
+6. Default trust store in WebSphere
+
+These are not used unless global security is enabled. If global security is
+disabled, JDK's trust store is used:
+
+$WAS_HOME/java/jre/lib/security/cacerts
+
+7. Default trust store in Java
+
+$JAVA_HOME/lib/security/cacerts
+
+Password: changeit
+
+8. Java SSL properties
+
+javax.net.ssl.trustStore
+javax.net.ssl.trustStorePassword
+
+9. Enabling environment for cross-cell EJB calls (between server A in cell C1
+and server B in cell C2); global security enabled at both ends and C1 and C2
+configured with the same or some different user registry
+
+On server A, cell C1 (the sender - EJB client):
+
+- enable identity assertion (CSIv2 outbound authentication)
+- disable security attribute propagation (CSIv2 outbound authentication)
+- create a user in the file based repository for authenticating to JNDI
+
+On server B, cell C2 (the receiver - EJB):
+
+- enable identity assertion (CSIv2 inbound authentication)
+- specify the "*" ID in trusted identities list (CSIv2 inbound authentication)
+- create a user in the file based repository for authenticating to JNDI
+- grant the above user "Cos Naming Read" CORBA permission
+
+Both user credentials need to be the same (username and password).

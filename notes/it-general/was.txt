@@ -1,0 +1,114 @@
+1. Cloning the Java SDK before applying an update for the SDK
+
+update -silent -W relaunch.active=false
+
+2. Installing a maintenance package
+
+. $WAS_HOME/bin/setupCmdLine.sh
+update -silent [-W maintenance.package=<path>]
+
+3. Determining file access permission problems
+
+truss -t open,close,read,write -f -o <log-file> <WAS-start-command>
+
+grep EACCES <log-file>
+
+An example match:
+
+"<file-name>", O_RDWR|O_CREAT|O_EXCL, 0666) Err#13 EACCES [ZONE]
+
+4. Adjusting file permissions after installing updates
+
+- change permissions
+- start and stop WAS processes
+- change permissions again
+
+5. Non-XA data sources have to be used for messaging engines (SIB).
+
+6. Disabing invoking servlets by class name (for security reasons)
+
+serveServletsByClassnameEnabled=false
+
+This property can be defined either as a Web container custom property or in the
+deployment descriptor (ibm-web-ext.xmi). It is enabled by default.
+
+7. Setting up path for DB2 Universal Driver in WAS 6.0
+
+ln -s <WAS_HOME>/cloudscape/lib/otherJars/db2jcc.jar
+	<WAS_HOME>/universalDriver/lib
+
+DB2UNIVERSAL_JDBC_DRIVER_PATH WebSphere environment variable should be set to
+${WAS_INSTALL_ROOT}/universalDriver/lib
+
+When connecting to a DB2 on a mainframe a license file db2jcc_license_cisuz.jar
+need to be copied to ${WAS_INSTALL_ROOT}/universalDriver/lib.
+
+8. Setting up WAS Scheduler when using global security
+
+Security -> Global Security -> Authentication protocol ->
+	CSIv2 outbound authentication -> Basic Authentication (Never)
+
+9. Pretest SQL strings
+
+Oracle:	SELECT 1 FROM DUAL
+MS SQL Server: SELECT 1
+
+DB2 UDB:
+
+SELECT CURRENT SQLID FROM SYSIBM.SYSDUMMY1
+SELECT 1 FROM SYSIBM.SYSDUMMY1 WITH UR
+
+Sybase: SELECT @@VERSION or SELECT @@SERVERNAME
+
+10. Listing Java processes showing command line arguments
+
+/usr/ucb/ps -auwwx | grep java
+
+11. Match criteria for a custom core group policy for a messaging engine that
+overrides the default policy
+
+WSAF_SIB_BUS <bus-name>
+IBM_hc <cluster-name>
+WSAF_SIB_MESSAGING_ENGINE <messaging-engine-name>
+
+12. SIB and MQ integration
+
+NPM speed setting on MQ Link has to match what is configured in MQ side.
+
+Messages sent from MQ should use one of these encodings:
+
+- encoding 273, CodedCharSetId : 1208
+- encoding 273, CodedCharSetId : 819 
+
+Default encoding for messages sent from SIB:
+
+- encoding 273, CodedCharSetId : 1208
+
+13. Location of WAS installation registry on Solaris
+
+/opt/.ibm/.nif/.nifregistry
+
+14. Tracing speficications
+
+SSL=all (SSL)
+ORBRas=all (ORB)
+com.ibm.ws.classloader.*=all (classloader)
+com.ibm.ws.dcs.*=all (DCS)
+com.ibm.ws.hamanager.*=all (HAM)
+
+JMS:
+
+Messaging=all:
+JMSApi=all:
+WAS.j2c=all:
+
+SIB:
+
+SIBProcessor=all:
+SIBCommunications=all:
+SIBMessageTrace*=all    
+
+ejbdeploy:
+
+com.ibm.etools.ejbdeploy.EJBDeploy=finest
+   

@@ -1,0 +1,38 @@
+1. Default Web Admin username/password
+
+webadmin/webp@sswd
+
+2. Importing a certificate from a PKCS#12 file
+
+export PATH=$PATH:<SOWS-ROOT>/bin/https/admin/bin
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:<SOWS-ROOT>/bin/https/lib
+cd <SOWS-ROOT>/alias
+pk12util -i <pkcs#12-file> -d . -P <database-prefix>
+
+3. Setup unattended SSL startup
+
+Edit <INSTANCE-ROOT>/config/password.conf:
+
+internal:<key-db-password>
+
+4. List all the certificates
+
+certutil -L -d <cert-dir> -P <database-prefix>
+
+5. Mark a certificate as a trusted CA to issue client certificates only
+
+certutil -M -n <cert-alias> -t T,, -d <cert-dir> -P <database-prefix>
+
+6. Add a self-signed certificate to the certificate database so that it will be
+trusted when used for SSL-client authentication
+
+certutil -A -d <cert-dir> -P <database-prefix> -i <cert-file> -n <cert-alias> \
+	-t "T,,"
+	 
+7. Add a trusted server CA to the certificate database
+
+certutil -A -d <cert-dir> -P <database-prefix> -i <cert-file> -n <cert-alias> \
+	-t "C,,"
+
+
+

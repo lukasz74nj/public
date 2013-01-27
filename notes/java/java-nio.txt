@@ -1,0 +1,11 @@
+1. Buffers
+
+- holds some data that is to be writen or that has just been read
+- not thread safe
+
+2. Channels
+
+- bi-directional (unlike streams); a Channel can be opened for reading, for
+writing, or for both
+
+- intended to be thread safe (in general)

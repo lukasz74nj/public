@@ -1,0 +1,21 @@
+1. Stopping the server.
+
+mysqladmin -u root shutdown
+
+2. Installing the server as a service on Windows.
+
+mysqld-max --install (--remove)
+
+mysqld-max --install MySQL --defaults-file=<path to .cfg file>
+
+3. Running a query from a file.
+
+mysql --user=<user> -p < <file>
+
+4. Drivers.
+
+com.mysql.jdbc.Driver
+com.mysql.jdbc.jdbc2.optional.MysqlDataSource
+com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource 
+com.mysql.jdbc.jdbc2.optional.xa.MysqlXADataSource (not yet implemented)
+ 

@@ -1,0 +1,57 @@
+1. Retrieve certificates from a server (in PEM format)
+
+openssl s_client -connect <host:port> -showcerts
+
+2. Verify a certificate
+
+openssl verify -CAfile <CA-cert-filename> <cert-file>
+
+3. Print a X509 encoded certificate in the text form
+
+openssl x509 -in <cert-filename> -text
+
+4. Convert a PKCS#12 file into a PEM format
+
+openssl pkcs12 -in <pkcs12-filename> -out <pem-filename> [-nodes]
+
+If the "-nodes" option is given the key won't be encrypted.
+
+5. Start a simple Web server listening on an SSL port
+
+openssl s_server -accept <ssl-port> -cert <pem-cert-filename>\
+	-pass pass:<pem-passphrase> -WWW
+
+6. Repackage a certificate in PKCS#12 format
+
+openssl pkcs12 -in <pkcs12-filename> -out <pem-filename>
+
+openssl pkcs12
+	-export -out <pkcs12-filename> -in <pem-filename>
+	-name <cert-friendly-name> -caname <CA-friendly-name>
+		
+8. Print a CSR in the text form
+
+openssl req -noout -text -in <csr-filename>
+		
+9. Generate a private key (RSA 1024-bits) and CSR in PEM format
+
+openssl req -subj '/name1=value1/name2=value2/.../CN=<cn>' -newkey rsa:1024 \
+	-keyout <key-file-name> -out <csr-file-name>
+
+An example subject:
+
+/C=US/ST=New York/L=New York/O=Citigroup/OU=CAS/CN=www.myhost.com
+
+(attribute names must be in uppercase, i.e. CN=value)
+
+10. Create a PKCS#12 file that includes both the personal certificate and its
+CA signers
+
+openssl pkcs12 -export -out <pkcs12-filename> -in <cert-filename> \
+	-inkey <key-filename> -certfile <ca-certs-filename> \
+	-name <cert-friendly-name> \
+	-caname <CA-friendly-name1> [-caname <CA-friendly-nameN>]
+
+11. Change the passphrase on the private key
+
+openssl rsa -des3 -in <input-key-filename> -out <output-key-filename>

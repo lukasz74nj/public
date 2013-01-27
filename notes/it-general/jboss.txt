@@ -1,0 +1,44 @@
+1. Installing MySQL driver.
+
+- put a JDBC driver in /server/<server_name>/lib/ or create a symlink to it
+(the RPM name of the driver is mysql-jdbc and it is installed under
+/usr/share/java/)
+
+- create /server/<server_name>/deploy/mysql-ds.xml
+- edit /server/<server_name>/conf/standardjbosscmp-jdbc.xml
+- edit /server/<server_name>/conf/login-config.xml
+
+2. Configuration files.
+
+standardjaws.xml          - CMP 1.1 engine configuration (legacy)
+standardjboss.xml         - EJB configuration
+standardjbosscmp-jdbc.xml - CMP 2.0 engine configuration
+
+3. Enabling JBoss (4.0.3+) for JConsole (Java 1.5+ only)
+
+-Djavax.management.builder.initial=org.jboss.system.server.jmx.MBeanServerBuilderImpl
+-Djboss.platform.mbeanserver
+-Dcom.sun.management.jmxremote
+
+(the console will incorporate both JBoss and JVM MBeans)
+
+4. Console URLs
+
+http://<host>:8080/jmx-console/
+http://<host>:8080/web-console/
+
+5. MBeans
+
+jboss.jca:service=ManagedConnectionPool,name=<JDBC data source JNDI name>
+
+6. Shutting down the server
+
+<jboss-home>/bin/shutdown.sh -S
+
+(requires a server configuration that contains the jmx-invokerservice.xml
+service - not available when using the "minimal" configuration)
+
+7. Viewing JNDI tree
+
+- open JMX console
+- invoke "list" operation on the JNDI service bean (service=JNDIView)

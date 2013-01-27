@@ -1,0 +1,5 @@
+- enum constructors are implicitly private (the "public" modifier is not
+allowed)
+
+- enum fields are implicitly public, static and final
+

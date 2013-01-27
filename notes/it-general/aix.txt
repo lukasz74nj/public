@@ -1,0 +1,27 @@
+1. Display information about volume groups
+
+lsvg [-l <volume-group-name>]
+
+2. Display the amount of usable physical memory in KB
+
+lsattr -E -l sys0 -a realmem
+
+3. CPU profiling
+
+tprof
+
+4. List available CPUs
+
+bindprocessor -q
+
+5. Show basic hardware and configuration details
+
+lsconf
+
+6. List installed software products
+
+lslpp -l
+
+7. Switch to another user (scsu equivalent)
+
+pbrun <userid>

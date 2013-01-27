@@ -1,0 +1,23 @@
+1. Showing changes between working copy and staging area
+
+git diff
+
+2. Showing changes between staging area and the last commit
+
+git diff --cached
+
+3. Commiting already staged files
+
+git commit -m <comment>
+
+4. Automatically staging all files that are already tracked and commiting
+
+git commit -a -m <comment>
+
+5. Undoing staging a file
+
+git rm --cached <filename>
+
+6. Renaming files
+
+git mv <old-filename> <new-filename>

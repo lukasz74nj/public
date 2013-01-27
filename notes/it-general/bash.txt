@@ -1,0 +1,11 @@
+1. Change xterm title
+
+PROMPT_COMMAND='echo -ne "\033]0;${HOSTNAME}:${PWD}\007"'
+
+2. Run infinite loop to prevent a timeout
+
+while [ 1 ]; do sleep 1; done
+
+3. Display the specific line from text file
+
+sed -n '<page-no>p' <filename>

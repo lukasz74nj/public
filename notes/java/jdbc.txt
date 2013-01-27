@@ -1,0 +1,3 @@
+1. Checking the DB2 JDBC/JCC driver version
+
+java com.ibm.db2.jcc.DB2Jcc -version

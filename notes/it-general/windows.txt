@@ -1,0 +1,27 @@
+1. Launching certificate manager
+
+certmgr.msc
+
+2. Terminate a process
+
+taskkill /F /PID <pid>
+
+3. Check the Windows version
+
+winver
+
+4. Running system utilities from the Web
+
+http://live.sysinternals.com
+
+(http://technet.microsoft.com/en-us/sysinternals)
+
+5. Reserve a range of ports (Windows Server 2003 and Windows XP)
+
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters
+
+ReservedPorts (Multi-String Value) = <startPort>-<endPort>
+
+6. Capture the path of an executing batch file
+
+set BATCH_PATH=%~dp0

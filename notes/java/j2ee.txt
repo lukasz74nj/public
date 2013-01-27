@@ -1,0 +1,14 @@
+1. Classpath
+
+An EAR contains 2 utility JARs (JAR1, JAR2) and a WAR module. Classes from the
+WAR module depend on JAR1, which in turn depends on JAR2. The following setup
+scenarios are possible:
+
+a) manifest of the WAR module lists JAR1 and JAR1 manifest lists JAR2
+b) manifest of the WAR module lists both JAR1 and JAR2
+
+For example relaxngDatatype.jar is listed in xsdlib-20030225.jar manifest and
+classes in a WAR module require xsdlib. The EAR application uses fully versioned
+JARs, i.e. relaxngDatatype-20020414.jar. In order to satisfy the classloader the
+WAR module should list relaxngDatatype-20020414.jar (in addition to
+xsdlib-20030225.jar) in its manifest.

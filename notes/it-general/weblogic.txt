@@ -1,0 +1,7 @@
+1. Installing MySQL driver.
+
+Modify the WEBLOGIC_CLASSPATH environment variable in
+$WL_HOME\weblogic81\common\bin\commEnv.sh so the driver jar file is prepended to
+it.
+
+

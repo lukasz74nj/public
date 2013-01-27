@@ -1,0 +1,10 @@
+- The Get and Put Principle: use an "extends" wildcard when only getting values
+out of a structure, use a "super" wildcard when only putting values into a
+structure, and don't use a wildcard when both getting and putting values
+
+- it is not allowed to put anything into a type declared with an "extends"
+wildcard - except for the value "null", which belongs to every reference type
+
+- since generics are implemented by erasure, a class cannot overload two
+methods whose signatures have the same erasure, and a class cannot implement two
+interfaces that have the same erasure

@@ -1,0 +1,6 @@
+A pair net/mask matches every IP address, where:
+
+net = IP AND mask, i.e.:
+
+10.90.12.0/255.255.12.254 matches IP range 10.90.12.0 - 10.90.12.1
+

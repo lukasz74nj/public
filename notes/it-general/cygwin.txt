@@ -1,0 +1,16 @@
+1. Setup X
+
+- define CYGWIN_ROOT environment variable in Windows and set it to Cygwin
+install dir, i.e. d:\programs\cygwin
+
+- append %CYGWIN_ROOT%\bin;%CYGWIN_ROOT%\usr\X11R6\bin to the PATH environment
+variable
+
+- add PATH=$PATH:/usr/X11R6/bin to ~/.bashrc and source it from ~/.bash_profile
+
+- copy /etc/X11/xinit/xinitrc to ~/.xinitrc and append exec <path-to-wmanager>
+
+- create a shortcut in Windows to start X, i.e.:
+C:\programs\cygwin\usr\X11R6\bin\run.exe /bin/bash.exe \
+--login -c "xinit -- -clipboard -silent-dup-error"
+

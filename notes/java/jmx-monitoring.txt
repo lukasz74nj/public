@@ -1,0 +1,19 @@
+1. Enable JMX Agent for local monitoring
+
+com.sun.management.jmxremote
+
+(In addition, on Windows it is necessary to set the TMP variable to a new path,
+i.e. C:\temp on both the application and JConsole side. This is related to
+inherited DACLs in the default temporary directory.)
+
+2. Enable JMX Agent for remote monitoring (without security)
+
+# port for JMX RMI connections
+com.sun.management.jmxremote.port=<port>
+
+com.sun.management.jmxremote.authenticate=false
+com.sun.management.jmxremote.ssl=false
+
+3. JMX service URL
+
+service:jmx:rmi:///jndi/rmi://<hostname>:<port>/jmxrmi

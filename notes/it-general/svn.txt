@@ -1,0 +1,7 @@
+- create a new repository at the specified path
+
+svnadmin create <repo-path>
+
+- start a subversion server using the given repository path
+
+svnserve --daemon [--foreground] --root <repo-path>

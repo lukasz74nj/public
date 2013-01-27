@@ -1,0 +1,29 @@
+1. List all databases on the server
+
+sp_databases
+
+2. Make a database current
+
+use <database-name>
+
+3. List tables in the current database
+
+sp_help
+
+4. List fields in the specified table
+
+sp_help <table-name>
+
+5. List current users and processes
+
+sp_who (or sp_who2)
+
+(useful to check for blocking processes)
+
+6. List all locks
+
+sp_lock 
+
+7. Display a definition of a stored procedure or a view
+
+sp_helptext <object-name>

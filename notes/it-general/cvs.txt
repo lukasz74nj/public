@@ -1,0 +1,17 @@
+1. Setting up a repository.
+
+# cvs -d <CVS-root> init
+
+2. The password file.
+
+$CVSROOT/CVSROOT/passwd
+
+format:
+
+<cvs-user-name>:[cvs-user-password][:system-user-name]
+
+If a user entry is not present CVS falls back to use system
+authentication (unless SystemAuth=no in the config file).
+
+CVS users can share the same system user name (the default
+is "cvs" and has to be present in /etc/passwd).

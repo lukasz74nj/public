@@ -1,0 +1,10 @@
+1. System properties
+
+- log4j.configuration=<path to a configuration file>, i.e:
+
+log4j.configuration=file:./<relative-path>
+
+- log4j.debug=true
+
+
+ 

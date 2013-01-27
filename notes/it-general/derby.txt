@@ -1,0 +1,24 @@
+- embedded driver
+
+derby.jar
+org.apache.derby.jdbc.EmbeddedDriver
+jdbc:derby:<database-name>[;create=true]
+jdbc:derby:<drive-letter>:/<path>/<database-name>[;create=true]
+
+- client driver
+
+derbyclient.jar
+org.apache.derby.jdbc.ClientDriver
+jdbc:derby://<server>[:<port=1527>]/<databaseName>[;create=true]
+
+- start/stop the Derby Network Server
+
+java -jar $DERBY_HOME/lib/derbyrun.jar server <start|shutdown> [-p <port>]
+
+- start the ij client
+
+java -jar $DERBY_HOME/lib/derbyrun.jar ij
+
+- create and open a connection to the database using ij
+
+CONNECT '<JDBC-URL>';

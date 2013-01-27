@@ -1,0 +1,16 @@
+1. XD specific host aliases
+
+These aliases are added to the default_host virtual host when the GEE system app
+gets installed for the first time.
+
+- for all LREE clones:
+	*:WCInboundDefault
+	*:WCInboundDefaultSecure
+	
+- for all LRS clones:
+	*:WCInboundDefault
+	*:WCInboundDefaultSecure
+
+2. Tracing speficications
+
+com.ibm.ws.batch.*=all (Batch jobs)

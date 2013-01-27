@@ -1,0 +1,60 @@
+1. How to filter permission denied warnings when finding files
+
+find / -name 'text' 2>/dev/null
+
+2. Display the names of all running zones
+
+[/usr/sbin/]zoneadm list
+
+3. Report virtual memory statistics
+
+vmstat
+
+4. Output the current system definition
+
+sysdef
+
+5. Display revision information for the current hardware and software
+
+showrev
+
+6. Solaris and SunOS versions
+
+Solaris 10 -> SunOS 5.10
+Solaris 9  -> SunOS 5.9
+Solaris 8  -> SunOS 5.8
+
+7. Determine whether the underlying hardware is 32 or 64 bit
+
+isainfo -b
+
+8. Determine if the given user/group/scsu map exists in the NIS+ domain
+
+niscat passwd.org_dir | grep -i <user-name>
+niscat group.org_dir | grep -i <group-name>
+niscat scsu.site_dir | grep -i <scsu-map-name>
+
+9. Display information about processors
+
+psrinfo
+
+10. Find the default gateway
+
+netstat -nr
+
+12. Find the netmask
+
+ifconfig -a
+
+13. Locations of xterm and dtterm
+
+/usr/openwin/bin/xterm 
+/usr/dt/bin/dtterm 
+
+14. Report process statistics
+
+prstat -L -p <pid>
+
+15. Locations of scsu
+
+/opt/SCsu/bin/scsu

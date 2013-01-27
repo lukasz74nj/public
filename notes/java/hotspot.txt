@@ -1,0 +1,98 @@
+1. Types of HotSpot JVM generations
+
+a) young generation (YG)
+
+- used for initial object allocation
+- consists of "Eden", "From" and "To" spaces
+
+- initial and maximum size: -XX:NewSize=<n> (-Xmn=<n>) , -XX:MaxNewSize=<n>
+(-Xmx=<n>) 
+
+b) old generation (OG)
+
+- used to store objects that survived a few YG GCs and for initial object
+allocation for objects that couldn't fit into YG
+
+c) permanent generation (PG)
+
+- used to store JVM metadata
+- initial and maximum size: -XX:PermSize=<n>, -XX:MaxPermSize=<n> 
+
+2. Heap size
+
+- heap size = YG size + OG size
+- initial and maximum size: -Xms=<n>, -Xmx=<n> 
+
+3. Types of GC collections
+
+a) minor - when YG fills up; YG is collected
+b) major (full GC) - when OG or PG fills up; YG, OG and PG is collected
+
+4. Types of GC collectors
+
+a) Thoroughput Collector
+
+- Parallel Collector (-XX:UseParallelGC) - used for minor collections
+
+- Parallel Compacting Collector (-XX:UseParallelOldGC) - used for major
+collections; available starting from 1.5_06.
+
+5. Show summary of GC statistics (1.5+)
+
+jstat <wmid> [interval] [count]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==========================
+sun.rmi.dgc.client.gcInterval
+sun.rmi.dgc.server.gcInterval
+
+(by default 60 secs)
+
+Young generation should be 1/3 of the heap size (Sun)
+
+-XX:NewSize=-Xms
+-XX:MaxNewSize=-Xmx 
+-XX:NewRatio=
+
+-XX:+PrintGC
+-XX:+PrintGCDetails
+-XX:+PrintGCTimeStamps
+-XX:+PrintTenuringDistribution
+
+
+-XX:+PrintGCApplicationConcurrentTime
+-XX:+PrintGCApplicationStoppedTime
+ 
+
+-XX:+PrintGC -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintTenuringDistribution -XX:+PrintGCApplicationConcurrentTime -XX:+PrintGCApplicationStoppedTime
+
+It is possible to enable lock lines for Sun's JVM 1.3.1 with -XX:+JavaMonitorsInStackTrace 
+
+
+
+Young generation and tenured generation.
+
+The default collector in HotSpot has two generations: the young generation and
+the tenured generation. Most allocations are done in the young generation. The
+young generation is optimized for objects that have a short lifetime relative to
+the interval between collections. Objects that survive several collections in
+the young generation are moved to the tenured generation. The young generation
+is typically smaller and is collected more often. The tenured generation is
+typically larger and collected less often. 
+
+

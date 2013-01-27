@@ -1,0 +1,120 @@
+1. Java 1.4
+
+- assertions
+
+2. Java 5 
+
+- enhanced for loop (for-each loop)
+- variable argument lists (var-args)
+- enums
+- generics
+- covariant method overriding (implemented using a bridging technique)
+- autoboxing
+- StringBuilder, PriorityQueue
+- higher-level concurrency packages
+- static imports
+
+3. Java 6
+
+- enums can be used in the switch expression
+- Console, NavigableSet, NavigableMap
+- Java VisualVM (jvisualvm) tool (Java 6 update 7)
+
+=================================
+- in general, overloaded var-args methoods are chosen last
+- boxing and then widening is OK: i --> Integer --> Object
+
+- floating-point literals are defined as double, i.e "float a = 1.2" won't
+compile (possible loss of precision); "float a = 1.2f" or
+"float a = (float)1.2" is OK
+
+- the result of an expression involving anything int-sized or smaller is always
+an int
+
+- compound assignment operators, i.e. "+=" perform an automatic cast
+("byte b = 3; b += 7" is OK)
+
+- a valid array reference assignment: "BaseType[] b; SubType[] s; b = s;"
+
+- initialization order: default values for fields, static fields,
+static initializers, super(), instance fields, instance initializers,
+constructor
+
+- two instances of these wrapper objects (created through boxing) will always be
+"==" when their primitive values are the same: Boolean, Byte, Character
+(\u0000 - \u007f), Short and Integer (-128 - 127)
+
+- widening is used over boxing or var-args in overloading
+
+- boxing is used over var-args in overloading
+
+- widening followed by boxing is illegal
+ 
+- var-args can be combined with either widening or boxing
+
+- the short-circuit operators ("&&" and "II") evaluate operands on both ends
+before applying the operator, i.e. "expr1 && expr2 + expr3" will be evaluated as
+"expr1 && (expr2 + expr3)"
+
+- if a Serializable class has a non-Serializable superclass, the superclass
+constructor will be run when the subclass is deserialized so any inherited
+variables from the superclass will be initialized during deserialization
+
+- instance variables of a Serializable class marked as transient will be
+restored to their default values when the class is deserialized
+
+- if a collection or array was sorted in natural order, it must be searched in
+natural order; if a collection or array was sorted using a Comparator, it must
+be searched using the same Comparator
+
+- when passing a typed collection to a legacy method which doesn't declare a
+type safe argument and modifies (adds) something to the collection, the compiler
+will generate a warning
+
+- if no classpath is specified when invoking "java" (either on the command line
+or via the CLASSPATH environment variable), the default classpath consists of
+the current directory (".")
+
+- the default classpath for the "javac" command doesn't include the current
+directory (".")
+
+=================================
+Interview questions:
+
+- double-checked locking
+
+- how to avoid deadlocks - one strategy is to aquire locks in a predetermined
+order
+
+- ACID properties (atomicity, consistency, isolation, durability)
+
+A set of properties that guarantee that database transactions are processed
+reliably.
+
+Atomicity requires that database modifications must follow an all or nothing
+rule. An atomic transaction cannot be subdivided, and must be processed in its
+entirety or not at all. Atomicity means that users do not have to worry about
+the effect of incomplete transactions.
+
+The consistency property ensures that the database remains in a consistent
+state; more precisely, it says that any transaction will take the database from
+one consistent state to another consistent state.
+
+Isolation refers to the requirement that other operations cannot access or see
+data that has been modified during a transaction that has not yet completed.
+
+Durability is the DBMS' guarantee that once the user has been notified of a
+transaction's success, the transaction will not be lost. The transaction's data
+changes will survive system failure, and that all integrity constraints have
+been satisfied, so the DBMS won't need to reverse the transaction. Many DBMS'
+implement durability by writing transactions into a transaction log that can be
+reprocessed to recreate the system state right before any later failure. A
+transaction is deemed committed only after it is entered in the log.
+
+- optimistic/pessimistic locking
+
+Optimistic transactions are most useful for long-running transactions that
+rarely affect the same instances. These applications exhibit higher performance
+and better concurrency by deferring datastore locking on modified instances
+until commit.
+ 

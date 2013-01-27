@@ -1,0 +1,9 @@
+1. Location of launch configurations
+
+<workspace-dir>/.metadata/.plugins/org.eclipse.debug.core/.launches
+
+2. Location of working sets
+
+<workspace-dir>/.metadata/.plugins/org.eclipse.ui.workbench/workingsets.xml
+
+

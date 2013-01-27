@@ -1,0 +1,9 @@
+1. Login to Perforce
+
+echo <password>|  p4 -p <host>:<port> -u <username> login
+
+(the password must be immediately followed by the pipe "|" character)
+
+2. Logging off
+
+p4 -p <host>:<port> -u <username> logout

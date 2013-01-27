@@ -1,0 +1,18 @@
+Aspects are described in terms of advice, pointcuts and join points.
+
+Advice - describes the job that an aspect will perform and when to perform the
+job (i.e. before/after a method is invoked).
+
+Join point - is a point in the execution of the application where an aspect can
+be plugged in (i.e. method being called, an exception being thrown, field being
+modified).
+
+Pointcut - a pointcut definition matches one or more join points at which an
+advice should be woven; pointcuts help narrow down the join points advised by an
+aspect.
+
+Weaving - is the process of applying aspects to a target object to create a new
+proxied object (in Spring aspects are woven at runtime).
+
+
+
