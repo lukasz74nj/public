@@ -24,5 +24,4 @@ lslpp -l
 
 7. Switch to another user (scsu equivalent)
 
-
 pbrun <userid>
