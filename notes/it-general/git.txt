@@ -21,3 +21,8 @@ git rm --cached <filename>
 6. Renaming files
 
 git mv <old-filename> <new-filename>
+
+7. Configuring a proxy server
+
+git config --global http.proxy http://<user>:<password>@<host>:<port>
+
