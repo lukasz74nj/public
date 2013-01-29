@@ -1,0 +1,3 @@
+Batch rename: %y-%M-%D_, 4 digits
+Development: Exif-JPEG (YCC422), max quality (100)
+

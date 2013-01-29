@@ -1,0 +1,32 @@
+1. Print all tags in the given file
+
+exiftool -s <filename>
+
+2. Print a list of all valid tag names
+
+exiftool -list
+
+3. Print a list of all EXIF tags
+
+exiftool -list -EXIF:All
+
+4. Rename *.MTS files according to date and time stored in EXIF 
+
+exiftool '-FileName<DateTimeOriginal' -dateFormat '%Y-%m-%d_%%1.4C.mts'\
+	-fileOrder DateTimeOriginal *.MTS
+
+(renamed files will have file extension changed to lower case and a sequential
+number added after date, i.e. 2011-03-07_0001.mts)
+
+5. Change the "FileModifyDate" tag to be the same as "DateTimeOriginal"
+
+exiftool '-FileModifyDate<DateTimeOriginal' <filename>
+
+5. Rename *.CR2 files according to date and time stored in EXIF
+
+exiftool '-FileName<DateTimeOriginal' -dateFormat '%Y-%m-%d_%%1.4C.cr2'\
+	-fileOrder DateTimeOriginal *.CR2
+
+(renamed files will have file extension changed to lower case and a sequential
+number added after date, i.e. 2011-03-07_0001.cr2)
+	

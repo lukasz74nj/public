@@ -1,0 +1,17 @@
+I/O - set selection start/end
+Option-I/Option O - set selection start/end to start/end of the clip
+
+/ - play selected range
+
+q - connect the selected clip
+e - append the selected clip to the end of the project
+w - insert the selected clip at the playhead location
+
+d - overwrite using the selected clip (from the playhead location or to cover the selected range in the project)
+
+Shift-q - backtimed connect
+Shift-d - backtimed overwrite
+
+Command-t - add a cross dissolve
+
+- a storyline groups a series of connected clips
