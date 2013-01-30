@@ -45,24 +45,28 @@ ${project.build.finalName} => ${project.artifactId}-${project.version}
 maven.dependency.classpath - (path ID to be used from Ant)
 maven.compile.classpath    - (path ID to be used from Ant)
 
-5. Releasing a project
+5. Peforming a release using maven-release-plugin
 
-mvn release:prepare:
+release:prepare [-DdryRun=true]
 
-- check that there's no uncommited changes in the sources and there's no
-SNAPSHOT dependencies
+(creates release.properties)
 
-- change version from x-SNAPSHOT in POM to released version, commit changes and
-tag SCM
+- verify that there are no uncommitted changes in the workspace
+- prompt the user for the desired tag, release and development version names
+- modify and commit release information into the pom.xml file
+- tag the entire project source tree with the new tag name
 
-- change version to (x+1)-SNAPSHOT in POM and commit
+release:perform
 
-mvn release:perform:
+(uses release.properties)
 
-- checks out the tagged release from an SCM
+- check out the release that was tagged during preparation phase
+- execute the maven build lifecycle on the extracted instance of the project
+- deploy the release version to appropriate local and remote repositories
 
-- executes predefined goals (by default deploy and site-deploy); a logic to
-update the build database can be put here
+release:rollback
+
+(if an SCM tag was generated successfully, it will have to be removed manually)
 
 6. Creating a plugin template
 
