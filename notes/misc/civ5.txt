@@ -1,0 +1,5 @@
+1. Changing the minimum distance between cities on iMac
+
+Edit MIN_CITY_RANGE in:
+
+ /Users/<username>/Library/Application Support/Steam/SteamApps/common/sid meier's civilization v/assets/Gameplay/XML/GlobalDefines.xml
