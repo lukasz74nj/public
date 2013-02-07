@@ -25,3 +25,7 @@ ReservedPorts (Multi-String Value) = <startPort>-<endPort>
 6. Capture the path of an executing batch file
 
 set BATCH_PATH=%~dp0
+
+7. Launch a WMIC (Windows Management Instrumentation Command-line) tool
+
+wmic
