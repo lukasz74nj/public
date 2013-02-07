@@ -7,3 +7,13 @@ echo <password>|  p4 -p <host>:<port> -u <username> login
 2. Logging off
 
 p4 -p <host>:<port> -u <username> logout
+
+3. Changing a text file type to be executable
+
+p4 edit -t "text+x" <filename>
+p4 submit -d "Changed file type to text+x." <filename>
+
+4. Deleting a locked label
+
+p4 label -o <label-name> | sed 's/locked/unlocked/' | p4 label -i
+p4 label -d <label-name>
