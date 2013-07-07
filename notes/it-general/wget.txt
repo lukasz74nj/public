@@ -1,0 +1,16 @@
+1. Run wget behind a proxy without validating the server's certificate
+
+- edit /etc/wgetrc:
+
+http_proxy = http://<hostname>:<port>/
+https_proxy = https://<hostname>:<port>/
+
+wget \
+--proxy-user=<proxy-user> \
+--proxy-password=<proxy-password> \
+--no-check-certificate \
+<URL>
+
+2. Ignore (override) robots.txt
+
+wget -e robots=off --wait 1 <URL>

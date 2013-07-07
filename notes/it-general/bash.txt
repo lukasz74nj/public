@@ -9,3 +9,12 @@ while [ 1 ]; do sleep 1; done
 3. Display the specific line from text file
 
 sed -n '<page-no>p' <filename>
+
+4. Make the "tail" command follow a file, even when it gets reopened
+
+tail --follow=name <filename>
+
+5. Tail the last modified file in the current directory
+
+tail -f $(find . -maxdepth 1 -type f -printf "%T@ %p\n" | sort -n | tail -n 1 | cut -d' ' -f 2-)
+tail `ls -t | head -1`

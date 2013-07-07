@@ -29,4 +29,7 @@ exiftool '-FileName<DateTimeOriginal' -dateFormat '%Y-%m-%d_%%1.4C.cr2'\
 
 (renamed files will have file extension changed to lower case and a sequential
 number added after date, i.e. 2011-03-07_0001.cr2)
-	
+
+6. Write a new value for the "DateTimeOriginal" tag
+
+exiftool -DateTimeOriginal='2013:04:01 08:44:24' <filename>

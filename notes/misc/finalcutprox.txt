@@ -1,3 +1,5 @@
+1. Misc
+
 I/O - set selection start/end
 Option-I/Option O - set selection start/end to start/end of the clip
 
@@ -15,3 +17,7 @@ Shift-d - backtimed overwrite
 Command-t - add a cross dissolve
 
 - a storyline groups a series of connected clips
+
+2. Import MPEG files
+
+MPEG files need to be renamed to *.mod before importing.

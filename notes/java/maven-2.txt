@@ -92,3 +92,15 @@ automatically, as it does for the EJB module?
 
 mvn help:effective-pom      - shows the final result of the target POM
 mvn help:effective-settings - shows effective settings
+
+9. Disabling compilation (and execution) of unit tests on the command-line
+
+-Dmaven.test.skip=true
+
+10. Disabling Javadoc generation on the command-line
+
+-Dmaven.javadoc.skip=true
+
+11. Displaying a list of newer versions of project's dependencies
+
+mvn versions:display-dependency-updates
