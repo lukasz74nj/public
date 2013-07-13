@@ -10,9 +10,7 @@ example configuration:
 	<localRepository>E:\maven-repo</localRepository>
 </settings>
 
-
 2. Generating a Struts 2 skeleton project
-
 
 mvn archetype:generate
 	-DinteractiveMode=false
