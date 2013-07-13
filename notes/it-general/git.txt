@@ -1,28 +1,65 @@
-1. Showing changes between working copy and staging area
+1. Configuration files (with decreased preference)
 
-git diff
+.git/config (repository-specific)
+~/.gitconfig (user-specific)
+/etc/gitconfig (system-wide)
 
-2. Showing changes between staging area and the last commit
+2. Configuring user name and email address
 
-git diff --cached
+git config [--global] user.name <name>
+git config [--global] user.email <email>
 
-3. Commiting already staged files
+(If the "--global" flag is given, changes will be applied to user-specific
+configuration file.)
 
-git commit -m <comment>
+3. Listing the settings found in the complete set of configuration files
 
-4. Automatically staging all files that are already tracked and commiting
+git config -l
 
-git commit -a -m <comment>
+4. Configuring a proxy server
 
-5. Undoing staging a file
+git config --global http.proxy http://<user>:<password>@<host>:<port>
+
+5. Cloning a remote repository using SSH
+
+git clone [--origin <remote-name>] ssh://<user>@<host><repo-path>, i.e:
+
+git clone --origin borg-public ssh://git@borg/mnt/raid5/git-repos/public.git
+
+6. Staging a file (adding it to the index)
+
+git add <filename>
+
+(This command can be invoked multiple times to update the index from a working
+copy.)
+
+7. Converting a file from staged to unstaged
 
 git rm --cached <filename>
 
-6. Renaming files
+8. Committing a file that was already added to the repository
+
+git commit -m <comment> <filename>
+
+9. Automatically staging all files that are already tracked and commiting
+
+git commit -a -m <comment>
+
+10. Renaming files
 
 git mv <old-filename> <new-filename>
 
-7. Configuring a proxy server
+11. Listing branch names found in the repository
 
-git config --global http.proxy http://<user>:<password>@<host>:<port>
+git branch
+
+12. Showing changes
+
+- between working copy and staging area
+
+git diff
+
+- between staging area and the last commit
+
+git diff --cached
 
