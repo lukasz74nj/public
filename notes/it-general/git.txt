@@ -6,11 +6,12 @@
 
 2. Configuring user name and email address
 
-git config [--global] user.name <name>
-git config [--global] user.email <email>
+git config [--global|--system] user.name <name>
+git config [--global|--system] user.email <email>
 
 (If the "--global" flag is given, changes will be applied to user-specific
-configuration file.)
+configuration file; if the "--system" flag is given, changes will be written to
+system-wide configuration file.)
 
 3. Listing the settings found in the complete set of configuration files
 
