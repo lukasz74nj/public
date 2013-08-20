@@ -1,0 +1,13 @@
+1. Change the color scheme
+
+Add the following to ~/.vimrc:
+
+colorscheme <scheme-name>, i.e:
+
+colorscheme slate
+
+To change the color scheme for the current editor session, open vim a type:
+
+:colorscheme <scheme-name>
+
+(instead of typing a scheme name, a tab key can be used to switch between available schemes)
