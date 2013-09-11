@@ -1,0 +1,1 @@
+- manifest classpath is ignored when using jar index
