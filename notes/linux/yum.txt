@@ -1,0 +1,8 @@
+1. Find out which package (available or installed) provides the given feature
+
+yum provides <absolute-path>
+
+For example:
+
+yum provides /usr/bin/epstopdf
+yum provides *epstopdf
