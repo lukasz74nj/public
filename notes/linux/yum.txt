@@ -2,7 +2,7 @@
 
 yum provides <absolute-path>
 
-For example:
+Examples:
 
 yum provides /usr/bin/epstopdf
 yum provides *epstopdf
