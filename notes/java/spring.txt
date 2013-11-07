@@ -1,0 +1,1 @@
+- @Required doesn't work with @Configuration classes by default (required properties in the beans that are created in the @Configuration classes must be set manually)
