@@ -1,1 +1,3 @@
 - @Required doesn't work with @Configuration classes by default (required properties in the beans that are created in the @Configuration classes must be set manually)
+
+- @Autowired cannot be used to auto wire collections (use @Resource instead)
