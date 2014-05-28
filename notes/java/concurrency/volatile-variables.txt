@@ -22,3 +22,7 @@ like entering a synchronized block
 
 - the most common use for volatile variables is a completion, interruption, or
 status flag
+
+- it is safe to perform read-modify-write operations on shared volatile
+variables as long as the volatile variable is only written from a single thread
+(in order to prevent race conditions)
