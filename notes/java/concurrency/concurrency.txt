@@ -1,3 +1,7 @@
+- A class is thread-safe if it behaves correctly when accessed from multiple
+threads, and with no additional synchronization or coordination on the part of
+the calling code.
+
 - Thread waits should always occur in loops in order to guard against spurious
 wakeups (a thread can wake up without being notified, interrupted, or timing
 out).
