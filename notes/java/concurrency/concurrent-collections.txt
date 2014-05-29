@@ -18,7 +18,8 @@ implementations (such as TreeMap and TreeSet wrapped with synchronizedMap)
 removal from both the head and the tail; just as blocking queues lend themselves
 to a producer-consumer pattern, deques lend themselves to a work stealing
 pattern, where every consumer has its own deque and if a consumer exhausts the
-work in its own deque, it can steal work from the tail of someone else's deque 
+work in its own deque, it can steal work from the tail of someone else's deque
+(work stealing is well suited to problems in which consumers are also producers)
 
 - ConcurrentHashMap uses a lock stripping, which permits arbitrarily many
 reading threads, concurrent access for readers and writers, and a limited
