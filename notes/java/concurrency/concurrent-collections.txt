@@ -1,15 +1,3 @@
-- while LinkedList also implements Queue - the Queue classes were added because
-eliminating the random-access requirements of List admits more efficient
-concurrent implementations
-
-- Java 6 adds ConcurrentSkipListMap and ConcurrentSkipListSet, which are
-concurrent replacements for synchronized implementations of SortedMap and
-SortedSet (such as TreeMap and TreeSet wrapped with synchronizedMap)
-
-- ConcurrentHashMap uses a lock stripping, which permits arbitrarily many
-reading threads, concurrent access for readers and writers, and a limited
-number of writers to modify the map concurrently
-
 - concurrent collections provide iterators that do not throw
 ConcurrentModificationException, thus eliminating the need to lock the
 collection during iteration (iterators are weakly consistent instead of
@@ -17,6 +5,23 @@ fail-fast); a weakly consistent iterator can tolerate concurrent modification,
 traverses elements as they existed when the iterator was constructed, and may
 (but is not guaranteed to) reflect modification to the collection after the
 construction of the iterator
+
+- while LinkedList also implements Queue - the Queue classes were added because
+eliminating the random-access requirements of List admits more efficient
+concurrent implementations
+
+- Java 6 adds ConcurrentSkipListMap and ConcurrentSkipListSet, which are
+concurrent replacements for synchronized SortedMap and SortedSet
+implementations (such as TreeMap and TreeSet wrapped with synchronizedMap)
+
+- ConcurrentHashMap uses a lock stripping, which permits arbitrarily many
+reading threads, concurrent access for readers and writers, and a limited
+number of writers to modify the map concurrently
+
+- CopyOnWriteArrayList and CopyOnWriteArraySet are concurrent replacements for
+synchronized List and Set implementations
+
+
 
 
 
