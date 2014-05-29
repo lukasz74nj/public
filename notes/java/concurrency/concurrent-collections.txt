@@ -1,3 +1,8 @@
 - while LinkedList also implements Queue - the Queue classes were added because
 eliminating the random-access requirements of List admits more efficient
 concurrent implementations
+
+- Java 6 adds ConcurrentSkipListMap and ConcurrentSkipListSet, which are
+concurrent replacements for synchronized implementations of SortedMap and
+SortedSet (such as TreeMap and TreeSet wrapped with synchronizedMap)
+
