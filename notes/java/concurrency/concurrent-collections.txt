@@ -14,6 +14,9 @@ concurrent implementations
 concurrent replacements for synchronized SortedMap and SortedSet
 implementations (such as TreeMap and TreeSet wrapped with synchronizedMap)
 
+- Java 6 adds Dequeue and BlockingDequeue implementations that allow insertion
+and removal from both the head and the tail
+
 - ConcurrentHashMap uses a lock stripping, which permits arbitrarily many
 reading threads, concurrent access for readers and writers, and a limited
 number of writers to modify the map concurrently
