@@ -43,5 +43,5 @@ acquired in one thread can be released from another thread
 - CyclicBarrier allows a fixed number of parties to rendezvous repeatedly at a
 barrier point and is useful in parallel iterative algorithms 
 
-
-
+- Exchanger - a two-party barrier in which the parties exchange data at the
+barrier point
