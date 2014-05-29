@@ -1,0 +1,22 @@
+A synchronizer is any object that coordinates the control flow of threads based
+on its state. Synchronizers encapsulate state that determines whether threads
+arriving at the synchronizer should be allowed to pass or forced to wait,
+provide methods to manipulate that state, and provide methods to wait
+efficiently for the synchronizer to enter the desired state.
+
+1) Blocking queues
+
+- coordinate the control flow of producer and consumer threads
+
+2) Latches
+
+- a synchronizer that can delay the progress of threads until it reaches its
+terminal state; latches can be used to ensure that certain activities do not
+proceed until other one-time activities complete
+
+- CountDownLatch allows one or more threads to wait for a set of events to
+occur (the latch state consists of a counter representing the number of events
+to wait for)
+
+
+
