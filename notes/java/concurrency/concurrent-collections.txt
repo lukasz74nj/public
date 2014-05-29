@@ -6,3 +6,8 @@ concurrent implementations
 concurrent replacements for synchronized implementations of SortedMap and
 SortedSet (such as TreeMap and TreeSet wrapped with synchronizedMap)
 
+- ConcurrentHashMap uses a lock stripping, which permits arbitrarily many
+reading threads, concurrent access for readers and writers, and a limited
+number of writers to modify the map concurrently
+
+
