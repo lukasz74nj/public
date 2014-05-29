@@ -1,0 +1,1 @@
+- while LinkedList also implements Queue - the Queue classes were added because eliminating the random-access requirements of List admits more efficient concurrent implementations
