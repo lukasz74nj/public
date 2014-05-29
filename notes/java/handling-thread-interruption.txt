@@ -1,0 +1,10 @@
+For library code, there are 2 choices:
+
+- propagate the InterruptedException to the caller
+
+- restore the interrupt status, so that the code higher up the call stack can
+see that an interrupt was issued:
+
+Thread.currentThread().interrupt()
+
+
