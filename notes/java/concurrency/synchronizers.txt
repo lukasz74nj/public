@@ -8,7 +8,13 @@ efficiently for the synchronizer to enter the desired state.
 
 - coordinate the control flow of producer and consumer threads
 
-2) Latches
+2) FutureTask
+
+- used by the Executor framework to represent asynchronous tasks, and can also
+be used to represent any potentially lenghtly computation whose results are
+needed later
+
+3) Latches
 
 - a synchronizer that can delay the progress of threads until it reaches its
 terminal state; latches can be used to ensure that certain activities do not
@@ -17,6 +23,25 @@ proceed until other one-time activities complete
 - CountDownLatch allows one or more threads to wait for a set of events to
 occur (the latch state consists of a counter representing the number of events
 to wait for)
+
+4) Semaphores
+
+- counting semaphores are used to control the number of activities that can
+access the certain resource or perform a given action at the same time, i.e.
+to implement resource pools or to impose a bound on a collection
+
+- a binary semaphore (a counting semaphore with an initial count of one) can
+be used as a mutex with non-reentrant locking semantics
+
+- semaphores don't associate dispensed permits with threads, so a permit
+acquired in one thread can be released from another thread
+
+5) Barriers
+
+- all threads must come together at a barrier point in order to proceed
+
+- CyclicBarrier allows a fixed number of parties to rendezvous repeatedly at a
+barrier point and is useful in parallel iterative algorithms 
 
 
 
