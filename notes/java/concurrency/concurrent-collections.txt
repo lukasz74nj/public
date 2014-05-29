@@ -10,4 +10,13 @@ SortedSet (such as TreeMap and TreeSet wrapped with synchronizedMap)
 reading threads, concurrent access for readers and writers, and a limited
 number of writers to modify the map concurrently
 
+- concurrent collections provide iterators that do not throw
+ConcurrentModificationException, thus eliminating the need to lock the
+collection during iteration (iterators are weakly consistent instead of
+fail-fast); a weakly consistent iterator can tolerate concurrent modification,
+traverses elements as they existed when the iterator was constructed, and may
+(but is not guaranteed to) reflect modification to the collection after the
+construction of the iterator
+
+
 
