@@ -1,0 +1,13 @@
+- even when using a fixed-size thread pool the application can run out of memory if the
+arrival rate of new requests exceeds the rate at which they can be executed
+
+- the executor framework supports 3 approaches to task queuing: unbounded queue, bounded
+queue and synchronous handoff
+
+- the default for executors created via Executors.newFixedThreadPool() and
+Executors.newSingleThreadExecutor() is to use an unbounded LinkedBlockingQueue.
+
+- executors created via Executors.newCachedThreadPool() use a SynchronousQueue
+
+- 
+
