@@ -4,10 +4,13 @@ arrival rate of new requests exceeds the rate at which they can be executed
 - the executor framework supports 3 approaches to task queuing: unbounded queue, bounded
 queue and synchronous handoff
 
-- the default for executors created via Executors.newFixedThreadPool() and
+- the default for thread pools created via Executors.newFixedThreadPool() and
 Executors.newSingleThreadExecutor() is to use an unbounded LinkedBlockingQueue.
 
-- executors created via Executors.newCachedThreadPool() use a SynchronousQueue
+- thread pools created via Executors.newCachedThreadPool() use a SynchronousQueue
 
-- 
+- SynchronousQueue in Java 6 was replaced with a non-blocking algorithm
 
+- a saturation policy (RejectedExecutionHandler) can be specified for a thread pool (the
+default is AbortPolicy, which causes submission of a new task to throw an exception when a
+bounded work queue is filled up)
