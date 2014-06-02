@@ -1,3 +1,5 @@
+- a deadlock is the most widely encountered liveness hazard
+
 - a program will be free of lock-ordering deadlocks if all threads acquire the locks they
 need in a fixed global order
 
