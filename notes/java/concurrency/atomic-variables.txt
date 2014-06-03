@@ -4,3 +4,9 @@ variable (read-modify-write support)
 - atomic variables offer the same memory semantics as volatile variables, but
 with additional support for atomic updates
 
+- the fast (uncontended) path for updating an atomic variable is no slower than
+the fast path for acquiring a lock; the slow path is faster than the slow path
+for locks because it does not involve suspending and rescheduling threads, since
+atomic variables use CAS
+
+
