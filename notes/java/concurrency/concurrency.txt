@@ -18,7 +18,8 @@ back out of an attempt to acquire a lock
 - threads acquire a fair lock in the order in which they requested it, whereas a
 nonfair lock permits barging (threads requesting a lock can jump ahead of the
 queue of waiting threads if the lock happens to be available when it is
-requested)
+requested); lock fairness has a significant performance cost because of the
+overhead of suspending and resuming threads
 
 - most of the executor implementations in java.util.concurrent use thread pools,
 which consist of worker threads; using worker threads minimizes the overhead due
