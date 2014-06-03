@@ -9,4 +9,4 @@ the fast path for acquiring a lock; the slow path is faster than the slow path
 for locks because it does not involve suspending and rescheduling threads, since
 atomic variables use CAS
 
-
+- atomic variables can be used to implement non-blocking (lock-free) algorithms
