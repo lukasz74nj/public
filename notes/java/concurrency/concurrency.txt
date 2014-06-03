@@ -1,35 +1,40 @@
-- A class is thread-safe if it behaves correctly when accessed from multiple
+- a class is thread-safe if it behaves correctly when accessed from multiple
 threads, and with no additional synchronization or coordination on the part of
-the calling code.
+the calling code
 
-- Thread waits should always occur in loops in order to guard against spurious
+- thread waits should always occur in loops in order to guard against spurious
 wakeups (a thread can wake up without being notified, interrupted, or timing
-out).
+out)
 
-- The use of synchronized methods or statements provides access to the implicit
+- the use of synchronized methods or statements provides access to the implicit
 monitor lock associated with every object, but forces all lock acquisition and
 release to occur in a block-structured way: when multiple locks are acquired
 they must be released in the opposite order, and all locks must be released in
-the same lexical scope in which they were acquired. 
+the same lexical scope in which they were acquired 
 
-- The biggest advantage of Lock objects over implicit locks is their ability to
-back out of an attempt to acquire a lock.
+- the biggest advantage of Lock objects over implicit locks is their ability to
+back out of an attempt to acquire a lock
 
-- Most of the executor implementations in java.util.concurrent use thread pools,
-which consist of worker threads. Using worker threads minimizes the overhead due
-to thread creation. Thread objects use a significant amount of memory, and in a
+- threads acquire a fair lock in the order in which they requested it, whereas a
+nonfair lock permits barging (threads requesting a lock can jump ahead of the
+queue of waiting threads if the lock happens to be available when it is
+requested)
+
+- most of the executor implementations in java.util.concurrent use thread pools,
+which consist of worker threads; using worker threads minimizes the overhead due
+to thread creation; thread objects use a significant amount of memory, and in a
 large-scale application, allocating and deallocating many thread objects creates
-a significant memory management overhead.
+a significant memory management overhead
 
-- Atomic variables allow to implement atomic operations on variables without
+- atomic variables allow to implement atomic operations on variables without
 using synchronization, i.e. AtomicInteger.incrementAndGet() in a thread-safe
-counter implementation.
+counter implementation
 
 - Condition factors out the Object monitor methods into distinct objects to give
 the effect of having multiple wait-sets per object, by combining them with the
-use of arbitrary Lock implementations.
+use of arbitrary Lock implementations
 
-- A Condition implementation can provide behavior and semantics that is
+- a Condition implementation can provide behavior and semantics that is
 different from that of the Object monitor methods, such as guaranteed ordering
 for notifications, or not requiring a lock to be held when performing
-notifications. 
+notifications 
