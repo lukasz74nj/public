@@ -15,6 +15,6 @@ cause failure or suspension of another thread; an algorithm is called lock-free
 if, at each step, some thread can make progress
 
 - AtomicReference can be used to atomically update related state variables
-(with preserving any invariants between them) which are held in an immutable holder
-class (the compound state is updated by replacing the immutable object with a new
-one using CAS)
+(with preserving any invariants between them) which are held in an immutable
+holder class (the compound state is updated by replacing the immutable object with
+a new one using CAS)
