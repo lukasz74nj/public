@@ -1,0 +1,18 @@
+- threads acquire a fair lock in the order in which they requested it, whereas a
+nonfair lock permits barging (threads requesting a lock can jump ahead of the
+queue of waiting threads if the lock happens to be available when it is
+requested)
+
+- lock fairness has a significant performance cost because of the overhead of
+suspending and resuming threads; in most cases, the performance benefits of
+non-fair locks outweigh the benefits of fair queuing
+
+- an example showing that barging locks perform much better than fair locks
+under heavy contention: thread A holds a lock and thread B asks for that lock,
+and since the lock is busy, B is suspended; when A releases the lock, B is
+resumed so it can try again; in the meantime if a thread C requests the lock,
+there is a good chance that C can acquire the lock, use it, and release before B
+even finishes waking up
+
+- fair locks tend to work best when they are held for a relatively long time or
+when the mean time between lock requests is relatively long
