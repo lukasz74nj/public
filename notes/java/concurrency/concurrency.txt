@@ -22,6 +22,13 @@ requested); lock fairness has a significant performance cost because of the
 overhead of suspending and resuming threads; in most cases, the performance
 benefits of non-fair locks outweigh the benefits of fair queuing
 
+- an example showing that barging locks perform much better than fair locks
+under heavy contention: thread A holds a lock and thread B asks for that lock,
+and since the lock is busy, B is suspended; when A releases the lock, B is
+resumed so it can try again; in the meantime if a thread C requests the lock,
+there is a good chance that C can acquire the lock, use it, and release before B
+even finishes waking up
+
 - most of the executor implementations in java.util.concurrent use thread pools,
 which consist of worker threads; using worker threads minimizes the overhead due
 to thread creation; thread objects use a significant amount of memory, and in a
