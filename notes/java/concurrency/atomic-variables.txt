@@ -11,5 +11,7 @@ atomic variables use CAS
 
 - atomic variables are used to implement non-blocking (lock-free) algorithms
 
-- AtomicReference can be used to atomically update multiple state variables held
-in an immutable object (i.e. when implementing a thread-safe number range class)
+- AtomicReference can be used to store a reference to an immutable object which
+holds multiple state variables, and to atomically update the compound state by
+replacing the immutable object using CAS (i.e. when implementing a thread-safe
+number range class)
