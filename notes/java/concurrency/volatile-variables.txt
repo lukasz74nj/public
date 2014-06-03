@@ -1,5 +1,6 @@
 - volatile variables are a weaker form of synchronization, they only guarantee
-visibility but not atomicity
+visibility but not atomicity; they cannot be used to construct atomic compound
+actions
 
 - operations on volatile variables are not reordered with other memory
 operations
