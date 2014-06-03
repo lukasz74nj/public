@@ -33,3 +33,8 @@ use of arbitrary Lock implementations
 different from that of the Object monitor methods, such as guaranteed ordering
 for notifications, or not requiring a lock to be held when performing
 notifications 
+
+- one advantage of using intrinsic locks over ReentrantLock is a possibility
+that a JVM can perform optimizations such as lock elision (for thread-confined
+lock objects) and lock coarsening to eliminate synchronization with intrinsic
+locks
