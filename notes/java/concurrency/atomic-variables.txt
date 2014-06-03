@@ -1,2 +1,6 @@
 - atomic variables are useful for effecting atomic operations on a single
 variable (read-modify-write support)
+
+- atomic variables offer the same memory semantics as volatile variables, but
+with additional support for atomic updates
+
