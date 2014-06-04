@@ -1,0 +1,25 @@
+- static initializers are run by the JVM at class initialization time, after
+class loading but before the class is used by any thread; memory writes made
+during static initialization are visible to all threads
+
+1) Thread-safe eager initialization
+
+public class A {
+	private static final Resource resource = new Resource();
+	
+	public static Resource getResource() {
+		return resource;
+	}
+}
+
+2) Thread-safe lazy initialization (using lazy initialization holder class idiom
+
+public class A {
+	public static class ResourceHolder {
+		public static final Resource resource = new Resource();
+	}
+		
+	public static Resource getResource() {
+		return ResourceHolder.resource;
+	}
+}
