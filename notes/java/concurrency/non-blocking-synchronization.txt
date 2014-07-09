@@ -1,0 +1,20 @@
+1) Lock-free synchronization
+
+- optimistic approach using hardware atomic primitives (CAS)
+
+- can cause starvation
+
+- avoids problems with locks (i.e. risk of a deadlock)
+
+- fast under low contention
+
+- simple algorithms
+
+
+2) Wait-free synchronization
+
+- always finishes in a finite number of its own steps
+
+- less efficient in average than lock-free
+
+- complex algorithms
