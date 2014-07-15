@@ -1,0 +1,19 @@
+Liveness is a concurrent application's ability to execute in a timely manner. The
+most common liveness problems:
+
+1) Deadlock
+
+-  two or more threads are blocked forever, waiting for each other
+
+2) Starvation
+
+-  a thread is unable to gain regular access to shared resources and is unable to
+make progress
+
+3) Livelock
+
+- threads are unable to make further progress; the threads are not blocked but are
+too busy responding to each other to resume work
+
+- this is comparable to two people attempting to pass each other in a corridor,
+where both move at the same time to let the other pass
