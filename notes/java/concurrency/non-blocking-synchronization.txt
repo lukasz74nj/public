@@ -10,7 +10,6 @@
 
 - simple algorithms
 
-
 2) Wait-free synchronization
 
 - always finishes in a finite number of its own steps
