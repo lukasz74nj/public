@@ -26,10 +26,6 @@ to thread creation; thread objects use a significant amount of memory, and in a
 large-scale application, allocating and deallocating many thread objects creates
 a significant memory management overhead
 
-- atomic variables allow to implement atomic operations on variables without
-using synchronization, i.e. AtomicInteger.incrementAndGet() in a thread-safe
-counter implementation
-
 - Condition factors out the Object monitor methods into distinct objects to give
 the effect of having multiple wait-sets per object, by combining them with the
 use of arbitrary Lock implementations
