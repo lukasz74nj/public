@@ -1,0 +1,4 @@
+- their publictly observable behavior is immutable (although some fields may be
+mutable)
+
+- a String is an effectively immutable because its hashCode field is mutable
