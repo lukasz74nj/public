@@ -4,7 +4,7 @@ reorder operations and cache values in processor-specific caches; this is meant
 to allow JVMs to take advantage of the performance of modern multiprocessor
 hardware
 
-- when a thread A executes a synchronized block, and subsequently thread B
+- when a thread A exits a synchronized block, and subsequently thread B
 enters a synchronized block guarded by the same lock, the values of the
 variables that were visible to A prior to releasing the lock are guaranteed to
 be visible to B upon acquiring the lock
