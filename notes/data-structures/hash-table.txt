@@ -22,6 +22,9 @@ in some probe sequence, until an unoccupied slot is found
 - a drawback of all open addressing schemes is that the number of stored entries
 cannot exceed the number of slots in the bucket array
 
+- even with good hash functions, performance dramatically degrades when the load
+factor grows beyond 0.7
+
 - linear probing (the interval between probes is fixed, usually 1)
 
 - quadratic probing (the interval between probes is increased using a quadratic
@@ -29,5 +32,3 @@ function)
 
 - double hashing (the interval between probes is computed using another hash
 function)
-
-	
