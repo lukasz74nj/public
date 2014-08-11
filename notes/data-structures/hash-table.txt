@@ -1,0 +1,33 @@
+1) Overview
+
+- a load factor is a measure of how full the hash table is allowed to get before its
+capacity is automatically increased; when the number of entries in the hash table
+exceeds the product of the load factor and the current capacity, the hash table is
+rehashed
+
+- a 0.75 load factor offers a good tradeoff between time and space costs
+
+2) Collision resolution
+
+2.1) Separate chaining
+
+- separate chaining with linked lists
+	
+2.2) Open addressing
+
+- all entry records are stored in the bucket array itself; when a new entry has to be
+inserted, the buckets are examined, starting with the hashed-to slot and proceeding
+in some probe sequence, until an unoccupied slot is found
+
+- a drawback of all open addressing schemes is that the number of stored entries
+cannot exceed the number of slots in the bucket array
+
+- linear probing (the interval between probes is fixed, usually 1)
+
+- quadratic probing (the interval between probes is increased using a quadratic
+function)
+
+- double hashing (the interval between probes is computed using another hash
+function)
+
+	
