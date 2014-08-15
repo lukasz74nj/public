@@ -1,5 +1,9 @@
 - indexing is a way of sorting a number of records on multiple fields
 
 - creating an index on a field in a table creates another (sorted) data structure
-which holds the field value and a pointer to the record it relates too; this allows
-binary searches to be performed on the structure greatly improving query performance
+which holds the field value and a pointer to the record it relates to; this allows
+binary (vs. linear) searches to be performed, which greatly improves query
+performance
+
+- indexes require additional disk space and have to be updated after inserting or
+deleting records (which slows down insert/delete operations)
