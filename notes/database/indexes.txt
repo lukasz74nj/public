@@ -16,4 +16,7 @@ list is used to make insertion of new indexes faster)
 
 - a B-tree (balanced search tree) is used to support quick searching among the
 leaf nodes (which are leaf nodes of the tree); each branch node entry corresponds
-to the biggest value in the respective leaf node
+to the biggest value in the respective leaf node; there are multiple layers of
+branch nodes and the root node at the top which contains a single entry; this
+structure forms a balanced search tree because the distance between the root node
+and all leaf nodes is the same
