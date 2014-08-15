@@ -1,4 +1,5 @@
-- indexing is a way of sorting a number of records on multiple fields
+- index is a data structure that makes the searching faster for a specific column
+in a database
 
 - creating an index on a field in a table creates another (sorted) data structure
 which holds the field value and a pointer to the record it relates to; this allows
