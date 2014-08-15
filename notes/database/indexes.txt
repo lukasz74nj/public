@@ -1,0 +1,5 @@
+- indexing is a way of sorting a number of records on multiple fields
+
+- creating an index on a field in a table creates another (sorted) data structure
+which holds the field value and a pointer to the record it relates too; this allows
+binary searches to be performed on the structure greatly improving query performance
