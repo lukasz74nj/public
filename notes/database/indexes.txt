@@ -1,10 +1,19 @@
 - index is a data structure that makes the searching faster for a specific column
 in a database
 
-- creating an index on a field in a table creates another (sorted) data structure
-which holds the field value and a pointer to the record it relates to; this allows
-binary (vs. linear) searches to be performed, which greatly improves query
-performance
-
 - indexes require additional disk space and have to be updated after inserting,
 updating or deleting records (which slows down insert/update/delete operations)
+
+- creating an index on a field in a table creates another (sorted) data structure
+which holds the field value and a pointer (i.e. a ROWID) to the record it relates
+to; this allows binary (vs. linear) searches to be performed, which greatly
+improves query performance
+
+- index data structures are grouped together to form index leaf nodes; each leaf
+node occupies a single database block or page (the database's smallest storage
+unit); leaf nodes are connected to each other using a double linked list (a linked
+list is used to make insertion of new indexes faster)
+
+
+
+
