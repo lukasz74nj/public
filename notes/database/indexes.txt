@@ -5,5 +5,5 @@ which holds the field value and a pointer to the record it relates to; this allo
 binary (vs. linear) searches to be performed, which greatly improves query
 performance
 
-- indexes require additional disk space and have to be updated after inserting or
-deleting records (which slows down insert/delete operations)
+- indexes require additional disk space and have to be updated after inserting,
+updating or deleting records (which slows down insert/update/delete operations)
