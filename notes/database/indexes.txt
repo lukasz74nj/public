@@ -1,22 +1,26 @@
-- index is a data structure that makes the searching faster for a specific column
-in a database
+- index is a data structure that improves lookup performance, as linear search
+is not efficient for large databases
 
 - indexes require additional disk space and have to be updated after inserting,
 updating or deleting records (which slows down insert/update/delete operations)
 
-- creating an index on a field in a table creates another (sorted) data structure
-which holds the field value and a pointer (i.e. a ROWID) to the record it relates
-to; this allows binary (vs. linear) searches to be performed, which greatly
-improves query performance
+- creating an index on a field in a table creates another (sorted) data
+structure which holds the field value and a pointer (i.e. a ROWID) to the record
+it relates to; this allows binary (vs. linear) searches to be performed, which
+greatly improves query performance
 
 - index data structures are grouped together to form index leaf nodes; each leaf
 node occupies a single database block or page (the database's smallest storage
-unit); leaf nodes are connected to each other using a double linked list (a linked
-list is used to make insertion of new indexes faster)
+unit); leaf nodes are connected to each other using a double linked list (a
+linked list is used to make insertion/deletion of indexes faster)
 
 - a B-tree (balanced search tree) is used to support quick searching among the
-leaf nodes (which are leaf nodes of the tree); each branch node entry corresponds
-to the biggest value in the respective leaf node; there are multiple layers of
-branch nodes and the root node at the top which contains a single entry; this
-structure forms a balanced search tree because the distance between the root node
-and all leaf nodes is the same
+leaf nodes (which are leaf nodes of the tree); each branch node entry
+corresponds to the biggest value in the respective leaf node; there are multiple
+layers of branch nodes and the root node at the top which contains a single
+entry; this structure forms a balanced search tree because the distance between
+the root node and all leaf nodes is the same
+
+- the key difference between clustered indexes and non clustered indexes is that
+the leaf level of the clustered index is the table; there can be only one
+clustered index per a database table
