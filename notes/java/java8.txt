@@ -1,0 +1,7 @@
+1. Default methods on interfaces
+
+- introduced to preserve binary compatibility (i.e. there is a new stream()
+operation on the Collection interface - without the default implementation the
+legacy code would break)
+
+2. Static methods on interfaces
