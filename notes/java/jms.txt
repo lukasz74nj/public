@@ -1,0 +1,69 @@
+1) Administrative objects
+
+- connection factories
+
+ConnectionFactory
+QueueConnectionFactory
+TopicConnectionFactory
+
+- destinations
+
+Destination
+Queue
+Topic
+
+2) Point-to-Point messaging domain
+
+- each message has only one consumer
+
+- no timing dependency between a sender and a receiver (the receiver can fetch
+the message whether or not it was running when the client sent the message)
+
+3) Publish/Subscribe messaging domain
+
+- each message can have multiple consumers
+
+- publishers and subscribers have timing dependency (a client that subscribes to
+a topic can consume only messages published after the client has created a
+subscription)
+
+- subscribers can create durable subscriptions, which receive messages sent
+while the subscribers are not active
+
+4) Message consumption
+
+- synchronously
+
+connection.start();
+Message message = consumer.receive();
+
+- asynchronously
+ 
+consumer.setMessageListener(listener);
+connection.start();
+
+5) Durable subscriptions
+
+- a durable subscription can have only one subscriber at a time
+
+MessageConsumer subscriber = session.createDurableSubscriber(topic, subName);
+subscriber.close();
+session.unsubscribe(subName);
+ 
+6) API examples
+
+Connection connection = ConnectionFactory.createConnection();
+
+// create a not transacted session with message auto-acknowledgement
+Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+
+MessageProducer producer1 = session.createProducer(destination);
+MessageProducer producer2 = session.createProducer(queue);
+MessageProducer producer3 = session.createProducer(topic);
+
+TextMessage message = session.createTextMessage();
+producer.send(message);
+
+MessageConsumer consumer1 = session.createConsumer(destination);
+MessageConsumer consumer2 = session.createConsumer(queue);
+MessageConsumer consumer3 = session.createConsumer(topic);
