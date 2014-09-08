@@ -8,6 +8,3 @@ hardware
 enters a synchronized block guarded by the same lock, the values of the
 variables that were visible to A prior to releasing the lock are guaranteed to
 be visible to B upon acquiring the lock
-
-
-
