@@ -7,4 +7,3 @@ A properly constructed object can be safely published by:
 - storing a reference to it into a final field of a properly constructed object
 
 - storing a reference to it into a field that is properly guarded by a lock
-

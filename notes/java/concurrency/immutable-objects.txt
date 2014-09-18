@@ -5,6 +5,3 @@ escape during construction)
 - immutable objects are always thread-safe and synchronization is not required
 to publish objects' references (initialization safety guaranteed by the Java
 Memory Model)
-
-
-

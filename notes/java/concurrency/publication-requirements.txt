@@ -14,6 +14,7 @@
 
 - must be safely published to ensure visibility of the as-published state
 
-- synchronization must be used every time the object is accessed to ensure visibility of subsequent modifications
+- synchronization must be used every time the object is accessed to ensure
+visibility of subsequent modifications
 
 - must be either thread-safe or guarded by a lock in order to be shared safely
