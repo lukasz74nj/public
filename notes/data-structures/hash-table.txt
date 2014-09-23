@@ -1,9 +1,9 @@
 1) Overview
 
-- a load factor is a measure of how full the hash table is allowed to get before its
-capacity is automatically increased; when the number of entries in the hash table
-exceeds the product of the load factor and the current capacity, the hash table is
-rehashed
+- a load factor is a measure of how full the hash table is allowed to get before
+its capacity is automatically increased; when the number of entries in the hash
+table exceeds the product of the load factor and the current capacity, the hash
+table is rehashed
 
 - a 0.75 load factor offers a good tradeoff between time and space costs
 
@@ -15,9 +15,9 @@ rehashed
 	
 2.2) Open addressing
 
-- all entry records are stored in the bucket array itself; when a new entry has to be
-inserted, the buckets are examined, starting with the hashed-to slot and proceeding
-in some probe sequence, until an unoccupied slot is found
+- all entry records are stored in the bucket array itself; when a new entry has
+to be inserted, the buckets are examined, starting with the hashed-to slot and
+proceeding in some probe sequence, until an unoccupied slot is found
 
 - a drawback of all open addressing schemes is that the number of stored entries
 cannot exceed the number of slots in the bucket array

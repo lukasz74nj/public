@@ -13,6 +13,3 @@ aspect.
 
 Weaving - is the process of applying aspects to a target object to create a new
 proxied object (in Spring aspects are woven at runtime).
-
-
-

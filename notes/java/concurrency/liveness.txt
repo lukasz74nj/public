@@ -11,8 +11,7 @@ The most common liveness problems:
 locks they need in a fixed global order
 
 - a program that never acquires more than one lock at a time cannot experience
-lock-ordering
-deadlock
+lock-ordering deadlock
 
 - alien methods should not be called with a lock held (these methods might
 acquire other locks risking a deadlock)

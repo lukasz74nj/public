@@ -8,15 +8,15 @@ with additional support for atomic updates
 using synchronization, i.e. AtomicInteger.incrementAndGet() in a thread-safe
 counter implementation
 
-- the fast (uncontended) path for updating an atomic variable is no slower than
+- the fast (uncontended) path for updating an atomic variable is not slower than
 the fast path for acquiring a lock; the slow path is faster than the slow path
 for locks because it does not involve suspending and rescheduling threads, since
 atomic variables use CAS
 
 - atomic variables are used to implement non-blocking and lock-free algorithms;
-an algorithm is called non-blocking if failure or suspension of any thread cannot
-cause failure or suspension of another thread; an algorithm is called lock-free
-if, at each step, some thread can make progress
+an algorithm is called non-blocking if failure or suspension of any thread
+cannot cause failure or suspension of another thread; an algorithm is called
+lock-free if, at each step, some thread can make progress
 
 - AtomicReference can be used to atomically update related state variables
 (with preserving any invariants between them) which are held in an immutable
