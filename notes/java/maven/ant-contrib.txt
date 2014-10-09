@@ -1,0 +1,36 @@
+An example of using ant-contrib tasks with the maven-antrun-plugin.
+
+<plugin>
+	<groupId>org.apache.maven.plugins</groupId>
+	<artifactId>maven-antrun-plugin</artifactId>
+	<executions>
+		<execution>
+			<id>execution-id</id>
+			<phase>prepare-package</phase>
+			<goals>
+				<goal>run</goal>
+			</goals>
+			<configuration>
+				<target>
+					<taskdef resource="net/sf/antcontrib/antlib.xml" classpathref="maven.plugin.classpath"/>
+					
+					<!-- use some ant-contrib tasks -->
+				</target>
+			</configuration>
+		</execution>
+	</executions>
+	<dependencies>
+		<dependency>
+			<groupId>ant-contrib</groupId>
+			<artifactId>ant-contrib</artifactId>
+			<version>1.0b3</version>
+			<exclusions>
+				<!-- exclude an older Ant version -->
+				<exclusion>
+					<groupId>ant</groupId>
+					<artifactId>ant</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+	</dependencies>
+</plugin>
