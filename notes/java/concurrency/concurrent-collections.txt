@@ -27,8 +27,3 @@ number of writers to modify the map concurrently
 
 - CopyOnWriteArrayList and CopyOnWriteArraySet are concurrent replacements for
 synchronized List and Set implementations
-
-
-
-
-
