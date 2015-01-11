@@ -3,3 +3,8 @@
 Edit MIN_CITY_RANGE in:
 
  /Users/<username>/Library/Application Support/Steam/SteamApps/common/sid meier's civilization v/assets/Gameplay/XML/GlobalDefines.xml
+
+ 2. Changing the city maximum cultural radius
+ 
+ MAXIMUM_ACQUIRE_PLOT_DISTANCE
+ 
