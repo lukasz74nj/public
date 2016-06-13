@@ -1,0 +1,7 @@
+* Disabling App Nap globally (for all applications)
+
+defaults write NSGlobalDomain NSAppSleepDisabled -bool YES
+
+to revert to default:
+
+defaults delete NSGlobalDomain NSAppSleepDisabled
