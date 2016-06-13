@@ -5,3 +5,7 @@ defaults write NSGlobalDomain NSAppSleepDisabled -bool YES
 to revert to default:
 
 defaults delete NSGlobalDomain NSAppSleepDisabled
+
+* Printing the application bundle ID given the application name
+
+osascript -e 'id of app "<app-name"'
