@@ -8,4 +8,4 @@ defaults delete NSGlobalDomain NSAppSleepDisabled
 
 * Printing the application bundle ID given the application name
 
-osascript -e 'id of app "<app-name"'
+osascript -e 'id of app "<app-name>"'
