@@ -1,10 +1,10 @@
-1. Configuration files (with decreased preference)
+* Configuration files (with decreased preference)
 
 .git/config (repository-specific)
 ~/.gitconfig (user-specific)
 /etc/gitconfig (system-wide)
 
-2. Configuring user name and email address
+* Configuring user name and email address
 
 git config [--global|--system] user.name <name>
 git config [--global|--system] user.email <email>
@@ -13,48 +13,48 @@ git config [--global|--system] user.email <email>
 configuration file; if the "--system" flag is given, changes will be written to
 system-wide configuration file.)
 
-3. Listing the settings found in the complete set of configuration files
+* Listing the settings found in the complete set of configuration files
 
 git config -l
 
-4. Configuring a proxy server
+* Configuring a proxy server
 
 git config --global http.proxy http://<user>:<password>@<host>:<port>
 
-5. Cloning a remote repository using SSH
+* Cloning a remote repository using SSH
 
 git clone [--origin <remote-name>] ssh://<user>@<host><repo-path>, i.e:
 
 git clone --origin borg-public ssh://git@borg/mnt/raid5/git-repos/public.git
 
-6. Staging a file (adding it to the index)
+* Staging a file (adding it to the index)
 
 git add <filename>
 
 (This command can be invoked multiple times to update the index from a working
 copy.)
 
-7. Converting a file from staged to unstaged
+* Converting a file from staged to unstaged
 
 git rm --cached <filename>
 
-8. Committing a file that was already added to the repository
+* Committing a file that was already added to the repository
 
 git commit -m <comment> <filename>
 
-9. Automatically staging all files that are already tracked and commiting
+* Automatically staging all files that are already tracked and commiting
 
 git commit -a -m <comment>
 
-10. Renaming files
+* Renaming files
 
 git mv <old-filename> <new-filename>
 
-11. Listing branch names found in the repository
+* Listing branch names found in the repository
 
 git branch
 
-12. Showing changes
+* Showing changes
 
 - between working copy and staging area
 
@@ -64,3 +64,8 @@ git diff
 
 git diff --cached
 
+* Undoing local commits
+
+git reset [--hard] <sha>
+
+- if the "--hard" option is specified contents on disk will be deleted
