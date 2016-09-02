@@ -1,0 +1,7 @@
+* Decrypting a masked password
+
+- locate the password hash (if using Mask Passwords Plugin - password hashes are located in
+<jenkins-home>/com.michelin.cio.hudson.plugins.maskpasswords.MaskPasswordsConfig.xml)
+
+- run the following script in the Jenkins Script Console:
+println(hundson.util.Secret.decrypt('<password-hash>'))
